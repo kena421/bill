@@ -112,6 +112,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = 'nstatic/'
+MEIDA_URL = 'media/'
+MEIDA_ROOT = 'nmedia/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -125,6 +128,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # if successfully logs in then redirect to 
 LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = "/login"
 
 # production
 EMAIL_USE_TLS = True

@@ -1,0 +1,45 @@
+{% comment %} {% extends 'main/base_site.html' %}
+
+{% block title %} navbar {% endblock title %}
+
+{% block body %} {% endcomment %}
+
+<div class="navbar flex flex-row space-between">
+    <div class="flex flex-row">
+        <div class="nav-item">
+            brand name 
+        </div>
+    </div>
+
+    <div class="flex flex-row">
+        <div class="nav-item">
+            <a class="plain_anchor" href={% url 'index'%}>Home</a>
+        </div>
+
+        {% if user.is_authenticated %}
+        
+            <div class="nav-item">
+                <a class="plain_anchor" href={% url 'profile'%}>{{ user.first_name }}</a>
+            </div>
+
+            <div class="nav-item">
+                <a class="plain_anchor" href={% url 'logout'%}>Logout</a>
+            </div>
+        
+        {% else %}
+
+            <div class="nav-item">
+                <a class="plain_anchor" href={% url 'login' %}>Login</a>
+            </div>
+
+            <div class="nav-item">
+                <a class="plain_anchor" href={% url 'signup' %}>Signup</a>
+            </div>
+
+        {% endif %}
+
+
+    </div>
+</div>
+
+{% comment %} {% endblock body %} {% endcomment %}

@@ -1,0 +1,49 @@
+{% extends 'main/base_site.html' %}
+
+{% block title %}sample component{% endblock title %}
+
+
+{% block body %}
+
+{% comment %} <div class="center-box-container flex flex-column">
+    <div class="center-box flex flex-column">
+        <div class="center-box-item center-box-title">
+           <p id="center-box-title-text">
+               This is heading of the boc1
+           </p> 
+        </div>
+    
+        <div class="center-box-item  center-box-content">
+            <form class="form-control flex flex-column" action="">
+                <input class="form-input" type="text">
+                <input class="form-input" type="text">
+                <input class="form-input" type="text">
+                <input class="form-input" type="text">
+                <input class="form-input" type="text">
+                <input class="form-input" type="text">
+            </form>
+        </div>
+    </div>
+
+</div> {% endcomment %}
+
+<div class="center-form-box-container">
+
+    <div class="center-form-box">
+
+        <div class="center-form-box-header">
+          <h3>LOGIN</h3>
+        </div>
+
+      <form class="center-form-box-form">
+        <input type="text" placeholder="username"/>
+        <input type="password" placeholder="password"/>
+        <button>login</button>
+        <p class="message">Not registered? <a href="#">Create an account</a></p>
+      </form>
+
+    </div>
+    
+  </div>
+
+{% endblock body %}

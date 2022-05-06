@@ -1,14 +1,11 @@
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
+from .views import navbar, index, signup, profile
 
 urlpatterns = [
-    # path('password_reset/', auth_views.PasswordResetView.as_view(template_name= 'navprayas/users/password_reset_form.html'), name='password_reset'),
-    # path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name= 'navprayas/users/password_reset_done.html'), name='password_reset_done'),
-    # path('password_reset/confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name= 'navprayas/users/password_reset_confirm.html'), name='password_reset_confirm'),
-    # path('password_reset/complete/', auth_views.PasswordResetCompleteView.as_view(template_name= 'navprayas/users/password_reset_complete.html'), name='password_reset_complete'),
     
     path('password_reset/', 
-        auth_views.PasswordResetView.as_view(template_name='main/auth/password_reset_confirm.html'), 
+        auth_views.PasswordResetView.as_view(template_name='main/auth/password_reset_email.html'), 
         name='password_reset'),
 
     path('password_reset/done/', 
@@ -39,5 +36,38 @@ urlpatterns = [
         name="password_change_done",
     ),
 
-    # path('accounts/', include('django.contrib.auth.urls')),
+
+
+
+    ########################################################################################
+
+    path(
+        'sample/', 
+        navbar,
+        name='navbar'
+    ),
+
+    path(
+        '', 
+        index,
+        name='index'
+    ),
+
+    path(
+        '', 
+        index,
+        name='index'
+    ),
+    path(
+        'signup/', 
+        signup,
+        name='signup'
+    ),
+
+    path(
+        'profile/', 
+        profile,
+        name='profile'
+    ),
+
 ]

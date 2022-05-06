@@ -1,0 +1,272 @@
+/* @import url(https://fonts.googleapis.com/css?family=Roboto:300); */
+
+:root {
+    --nav-color : #417690;
+    --nav-dark-color: #264B5D;
+    --dark-blue: #264B5D;
+    --light-blue: #417690;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    background-color: azure;
+}
+
+
+
+/* ===================================================== */
+/* login page */
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+
+.login-page .form .login{
+    margin-top: -20px;
+    margin-bottom: 26px;
+}
+
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 400px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background-color: #328f8a;
+  background-image: linear-gradient(45deg,var(--dark-blue), var(--light-blue));
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form .message {
+  /* margin: 15px 0 0; */
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  color: var(--dark-blue);
+  text-decoration: none;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  /* margin: 0 auto; */
+}
+
+
+
+/* ===================================================== */
+
+
+.b {
+    border: 3px solid rebeccapurple;
+}
+
+
+.inline {
+    display: inline;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.nav-item {
+    padding: 10px;
+    background-color: var(--nav-color);
+    margin: 3px;
+}
+
+.nav-item:hover {
+    background-color: #323b3f;
+    box-shadow: 1px 1px #888888;
+}
+
+
+
+.space-between {
+    justify-content: space-between;
+}
+
+.navbar {
+    /* margin-left: 20px;
+    margin-right: 20px; */
+    background-color: var(--nav-dark-color);
+    color: white;
+    font-weight: 600;
+    /* height: 8vh; */
+}
+
+.navbar > div {
+    margin-left: 20px;
+    margin-left: 20px;
+    padding: 3px;
+    
+}
+
+/* sampel */
+.center-form-box-container {
+    width: 400;
+    padding: 8% 0 0;
+    margin: auto;
+  }
+  
+ .center-form-box-header{
+      margin-top: -20px;
+      margin-bottom: 26px;
+  }
+  
+  .center-form-box {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 400px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+  .center-form-box-form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  .center-form-box-form button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background-color: #328f8a;
+    background-image: linear-gradient(45deg,var(--dark-blue), var(--light-blue));
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    margin-top: 25px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+  }
+  .center-form-box-form .message {
+    /* margin: 15px 0 0; */
+    color: #b3b3b3;
+    font-size: 12px;
+  }
+  .center-form-box-form .message a {
+    color: var(--dark-blue);
+    text-decoration: none;
+  }
+
+  
+.form-label, .form-errors, .form-help-text {
+    padding: 4px;
+    text-align: left;
+}
+
+.form-help-text {
+  font-size: 12px;
+  margin-top: -8px;
+}
+
+.non-form-field-errors > *{
+  list-style-type: none;
+  text-align: center;
+  font-size: 12px;
+  color: red;
+  padding: 0px 10px;
+
+}
+
+.form-help-text > * {
+    /* list-style-type: none; */
+    text-align: left;
+    padding-left: 15px;
+    margin-top: -4px;
+    font-size: 12px;
+    
+    /* padding-bottom: 3px; */
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.plain_anchor {
+  color: white;
+}
+
+/* PROFILE CSS */
+
+.profile-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 80%;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  margin-top: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-top: 10px solid var(--dark-blue);
+  padding-bottom: 20px;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 10%;
+  font-size: 18px;
+}
+

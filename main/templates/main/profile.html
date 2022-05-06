@@ -1,0 +1,20 @@
+{% extends 'main/base_site.html' %}
+
+{% block title %}profile{% endblock title %}
+
+{% block body %}
+
+<div class="profile-card">
+    <h1>{{ user.first_name}} {{usernlast_name}}</h1
+    <p class="title">Sample Detail</p>
+    <p>Institute</p>
+    <div style="margin: 24px 0;">
+      <a href="#"><i class="fa fa-twitter"></i></a>  
+      <a href="#"><i class="fa fa-linkedin"></i></a>  
+      <a href="#"><i class="fa fa-facebook"></i></a> 
+    </div>
+    <p><button>Contact</button></p>
+  </div>
+
+
+{% endblock body %}
