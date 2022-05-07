@@ -1,0 +1,25 @@
+{% extends 'main/base_site.html' %}
+
+{% block title %}{{subject.name}}{% endblock title %}
+
+{% block body %}
+
+<div class="shadow-container flex flex-column">
+
+<div class="shadow-container-title">{{subject.name}} Assignments</div>
+
+<div class="assignment-container">
+    
+    {% for assignment in assignments %}
+        <div class="assignment-card flex flex-row">
+            <p class="assignment-title">{{assignment.title}}</p>
+            <a href="/assignment/{{assignment.id}}" class="view-assignment">View</a>
+        </div>
+    {% endfor %}
+</div>
+
+</div>
+
+
+
+{% endblock body %}

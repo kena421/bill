@@ -1,0 +1,24 @@
+{% extends 'main/base_site.html' %}
+
+{% block title %}Students home{% endblock title %}
+
+{% block body %}
+
+<div class="shadow-container flex flex-column">
+
+<div class="shadow-container-title">Class {{klass}}</div>
+
+<div class="subject-container grid">
+
+    {% for subject in subjects %}
+        <div class="subject-card flex">
+            <a class="subject-title" href="/subject_assignments/{{subject.id}}">{{subject.name}}</a>
+        </div>
+    {% endfor %}
+</div>
+
+</div>
+
+
+
+{% endblock body %}

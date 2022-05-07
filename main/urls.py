@@ -1,6 +1,6 @@
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
-from .views import navbar, index, signup, profile
+from .views import navbar, index, signup, profile, student_home, teacher_home, portal_selection, subject_assignments, view_assignment
 
 urlpatterns = [
     
@@ -68,6 +68,36 @@ urlpatterns = [
         'profile/', 
         profile,
         name='profile'
+    ),
+
+    path(
+        'portal_selection/', 
+        portal_selection,
+        name='portal_selection'
+    ),
+
+    path(
+        'student_home/', 
+        student_home,
+        name='student_home'
+    ),
+
+    path(
+        'teacher_home/', 
+        teacher_home,
+        name='teacher_home'
+    ),
+
+    path(
+        'subject_assignments/<int:id>', 
+        subject_assignments,
+        name='subject_assignments'
+    ),
+
+    path(
+        'assignment/<int:id>', 
+        view_assignment,
+        name='view_assignment'
     ),
 
 ]

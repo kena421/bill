@@ -1,0 +1,33 @@
+{% extends 'main/base_site.html' %}
+
+{% block title %}assignment{% endblock title %}
+
+{% block body %}
+
+
+
+<div class="assignment-view-card-container">
+    <div class="assignment-view-card-container-title">
+        {{assignment.title}}
+    </div>
+    <div class="assignment-view-card-container-desciption">
+        {{assignment.desciption}}
+    </div>
+</div>
+
+<div style="color:red" class="assignment-details assignment-view-card-container flex flex-row space-between">
+    <p>Marks: {{assignment.marks}}</p>
+    <p>Due Date: {{assignment.due_date}}</p>
+   
+</div>
+<div class="submission-area assignment-view-card-container">
+    <form class="center-form-box-form" method="post">
+        {% csrf_token %}
+        {{form.solution}}
+
+      <button type="submit">Submit Solution</button>
+    </form>
+</div>
+
+
+{% endblock body %}

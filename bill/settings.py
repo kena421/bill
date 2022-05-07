@@ -101,7 +101,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE =  'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -127,7 +127,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # if successfully logs in then redirect to 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = "/portal_selection"
 LOGIN_URL = "/login"
 
 # production
