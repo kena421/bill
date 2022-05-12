@@ -28,22 +28,30 @@ def index(request: HttpRequest):
 
 @login_required
 def view_assignment(request: HttpRequest, id: int):
+    try:
+        student = request.user.profile.student
+    except:
+        return HttpResponse("Are you a student? contact your admin")
     assignment = get_object_or_404(Assignment, pk=id)
     if request.method == "GET":
         form = SubmissionForm()
+        if Submission.objects.filter(student=student, assignment=assignment).exists():
+            submission = Submission.objects.filter(student=student, assignment=assignment).first()
+            form = SubmissionForm(instance=submission)
         context = {
             'assignment':assignment,
             'form': form
         }
         return render(request, 'main/assignments/view.html', context)
     else:
-        if Submission.objects.filter(user=request.user, assignment=assignment).exists():
-            return HttpResponse("You have already submitted solution")
 
+        
+        if Submission.objects.filter(student=student, assignment=assignment).exists():
+            return HttpResponse("You have already submitted solution")
         form = SubmissionForm(request.POST)
         submission = form.save(commit=False)
-        submission.user = request.user
-        submission.assignment = request.assignment
+        submission.student = student
+        submission.assignment = assignment
         submission.save()
         return redirect('/')
 
