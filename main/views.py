@@ -60,7 +60,7 @@ def view_assignment(request: HttpRequest, id: int):
 @login_required
 def subject_assignments(request: HttpRequest, id: int):
     subject = get_object_or_404(Subject ,pk=id)
-    assignments = Assignment.objects.filter(id=id)
+    assignments = Assignment.objects.filter(subject=subject)
     context = {
         'subject': subject,
         'assignments': assignments
