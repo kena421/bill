@@ -82,7 +82,7 @@ def student_home(request: HttpRequest):
     return render(request, 'main/student/home.html', context)
 @login_required
 def teacher_home(request: HttpRequest):
-    return render(request, 'main/teacher/home.html')
+    return redirect('/admin')
 
 def signup(request: HttpRequest):
     if request.method == "GET":
