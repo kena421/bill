@@ -1,16 +1,21 @@
 from ast import Assign
-from django.http import HttpRequest
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
 from main.forms import SubmissionForm, UserSignupForm
-from main.models import Assignment, Klass, Subject
+from main.models import Assignment, Klass, Profile, Subject
 from django.shortcuts import get_object_or_404
-
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 # ========UTITLITY FUNCTIONS
 
 def portal_selection(request: HttpRequest):
     user = request.user
+    print(user.is_authenticated)
+    if not user.is_authenticated:
+        return redirect('login')
+    if not Profile.objects.filter(user=user).exists():
+        return HttpResponse("You can not login, contact your admin")
     if user.profile.is_student():
         return redirect('student_home')
     else:
@@ -21,6 +26,7 @@ def portal_selection(request: HttpRequest):
 def index(request: HttpRequest):
     return portal_selection(request)
 
+@login_required
 def view_assignment(request: HttpRequest, id: int):
     assignment = get_object_or_404(Assignment, pk=id)
     form = SubmissionForm()
@@ -30,7 +36,7 @@ def view_assignment(request: HttpRequest, id: int):
     }
     return render(request, 'main/assignments/view.html', context)
     
-
+@login_required
 def subject_assignments(request: HttpRequest, id: int):
     subject = get_object_or_404(Subject ,pk=id)
     assignments = Assignment.objects.filter(id=id)
@@ -40,7 +46,7 @@ def subject_assignments(request: HttpRequest, id: int):
     }
     return render(request, 'main/assignments/home.html', context)
 
-
+@login_required
 def student_home(request: HttpRequest):
     student = request.user.profile.student
     klass = student.klass
@@ -53,10 +59,9 @@ def student_home(request: HttpRequest):
         'subjects' : subjects
     }
     return render(request, 'main/student/home.html', context)
-
+@login_required
 def teacher_home(request: HttpRequest):
     return render(request, 'main/teacher/home.html')
-
 
 def signup(request: HttpRequest):
     if request.method == "GET":
@@ -78,6 +83,7 @@ def signup(request: HttpRequest):
         return redirect('index')
 
 
+@login_required
 def profile(request: HttpRequest):
     form = UserSignupForm()
     context = {
