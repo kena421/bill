@@ -2,7 +2,7 @@ from ast import Assign
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
 from main.forms import SubmissionForm, UserSignupForm
-from main.models import Assignment, Klass, Profile, Subject
+from main.models import Assignment, Klass, Profile, Subject, Submission
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 
@@ -29,12 +29,25 @@ def index(request: HttpRequest):
 @login_required
 def view_assignment(request: HttpRequest, id: int):
     assignment = get_object_or_404(Assignment, pk=id)
-    form = SubmissionForm()
-    context = {
-        'assignment':assignment,
-        'form': form
-    }
-    return render(request, 'main/assignments/view.html', context)
+    if request.method == "GET":
+        form = SubmissionForm()
+        context = {
+            'assignment':assignment,
+            'form': form
+        }
+        return render(request, 'main/assignments/view.html', context)
+    else:
+        if Submission.objects.filter(user=request.user, assignment=assignment).exists():
+            return HttpResponse("You have already submitted solution")
+
+        form = SubmissionForm(request.POST)
+        submission = form.save(commit=False)
+        submission.user = request.user
+        submission.assignment = request.assignment
+        submission.save()
+        return redirect('/')
+
+
     
 @login_required
 def subject_assignments(request: HttpRequest, id: int):
@@ -91,6 +104,7 @@ def profile(request: HttpRequest):
     }
     
     return render(request, 'main/profile.html', context)
+
 
 def navbar(request: HttpRequest):
     return render(request, 'main/components/sample.html')
